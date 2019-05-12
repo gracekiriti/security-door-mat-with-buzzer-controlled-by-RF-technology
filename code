@@ -1,0 +1,33 @@
+int D0 = 2; /*initializing inputs at transmiter pins to arduino*/
+int D1=3;
+int D2=4;
+int D3=5;         
+int bell=8;        
+int D0state = 1; /* assigning the value which indicates the state of the transmiter pins*/
+int D1state=1;
+int D2state=1;
+int D3state=1;
+void setup()
+{
+pinMode(D0, INPUT); 
+pinMode(D1, INPUT);
+pinMode(D2, INPUT);
+pinMode(D3, INPUT);
+pinMode(bell, OUTPUT);
+}
+void loop()
+{
+D0state = digitalRead(D0);
+D1state = digitalRead(D1);
+D2state= digitalRead(D2);
+D3state=digitalRead(D3);
+if (D0state==LOW &amp;amp;&amp;amp; D1state==HIGH &amp;amp;&amp;amp; D2state==HIGH
+&amp;amp;&amp;amp; D3state==HIGH)
+{
+digitalWrite(bell, HIGH);
+}
+else
+{
+digitalWrite(bell, LOW);
+}
+}
